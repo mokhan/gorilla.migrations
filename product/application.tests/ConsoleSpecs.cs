@@ -1,6 +1,7 @@
 using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.harnesses.mbunit;
 using developwithpassion.bdd.mocking.rhino;
+using Rhino.Mocks;
 using simple.migrations;
 
 namespace tests
@@ -9,20 +10,27 @@ namespace tests
     {
         public abstract class concern : observations_for_a_sut_with_a_contract<Console, ConsoleApplication>
         {
-            context c = () => { console_controller = controller.the_dependency<ConsoleController>(); };
+            context c = () => { command_registry = controller.the_dependency<CommandRegistry>(); };
 
-            protected static ConsoleController console_controller;
+            protected static CommandRegistry command_registry;
         }
 
-        public class when_running_a_test : concern
+        public class when_processing_a_new_request : concern
         {
-            it should_not_blow_up = () => { console_controller.received(x => x.process(console_arguments)); };
+            it should_run_the_command_that_can_handle_the_request =
+                () => { correct_command.received(x => x.run_against(console_arguments)); };
 
-            context c = () => { console_arguments = new[] {""}; };
+            context c = () =>
+                            {
+                                console_arguments = new[] {""};
+                                correct_command = controller.an<ParameterizedCommand<string[]>>();
+                                command_registry.Stub(x => x.command_for(console_arguments)).Return(correct_command);
+                            };
 
             because b = () => { controller.sut.run_against(console_arguments); };
 
             static string[] console_arguments;
+            static ParameterizedCommand<string[]> correct_command;
         }
     }
 }

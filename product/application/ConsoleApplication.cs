@@ -2,16 +2,16 @@ namespace simple.migrations
 {
     public class ConsoleApplication : Console
     {
-        readonly ConsoleController controller;
+        readonly CommandRegistry registry;
 
-        public ConsoleApplication(ConsoleController controller)
+        public ConsoleApplication(CommandRegistry registry)
         {
-            this.controller = controller;
+            this.registry = registry;
         }
 
-        public void run_against(string[] item)
+        public void run_against(string[] arguments)
         {
-            controller.process(item);
+            registry.command_for(arguments).run_against(arguments);
         }
     }
 }
