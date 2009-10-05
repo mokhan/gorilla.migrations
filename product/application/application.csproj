@@ -49,6 +49,9 @@
     <Compile Include="Console.cs" />
     <Compile Include="ConsoleApplication.cs" />
     <Compile Include="CommandRegistry.cs" />
+    <Compile Include="ConsoleArgumentsCommandRegistry.cs" />
+    <Compile Include="ConsoleCommand.cs" />
+    <Compile Include="HelpCommand.cs" />
     <Compile Include="ParameterizedCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
