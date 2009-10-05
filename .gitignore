@@ -10,4 +10,5 @@ _ReSharper.*
 *.swp
 *.swo
 *.sql
+local_properties.rb
 artifacts
