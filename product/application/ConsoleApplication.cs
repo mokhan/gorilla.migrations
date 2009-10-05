@@ -2,7 +2,7 @@ namespace simple.migrations
 {
     public class ConsoleApplication : Console
     {
-        ConsoleController controller;
+        readonly ConsoleController controller;
 
         public ConsoleApplication(ConsoleController controller)
         {
