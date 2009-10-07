@@ -23,14 +23,14 @@ namespace tests
             context c = () =>
                             {
                                 console_arguments = new[] {""};
-                                correct_command = controller.an<ParameterizedCommand<string[]>>();
+                                correct_command = controller.an<ParameterizedCommand<ConsoleArguments>>();
                                 command_registry.Stub(x => x.command_for(console_arguments)).Return(correct_command);
                             };
 
             because b = () => { controller.sut.run_against(console_arguments); };
 
             static string[] console_arguments;
-            static ParameterizedCommand<string[]> correct_command;
+            static ParameterizedCommand<ConsoleArguments> correct_command;
         }
     }
 }

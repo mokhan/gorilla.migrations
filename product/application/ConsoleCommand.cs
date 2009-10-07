@@ -1,7 +1,7 @@
 namespace simple.migrations
 {
-    public interface ConsoleCommand : ParameterizedCommand<string[]>
+    public interface ConsoleCommand : ParameterizedCommand<ConsoleArguments>
     {
-        bool can_handle(string[] arguments);
+        bool can_handle(ConsoleArguments arguments);
     }
 }

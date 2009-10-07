@@ -73,6 +73,7 @@
     <Compile Include="ConsoleSpecs.cs" />
     <Compile Include="EmptyTestFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RunMigrationsCommandSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\application\application.csproj">

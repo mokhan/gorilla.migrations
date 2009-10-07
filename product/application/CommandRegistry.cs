@@ -2,7 +2,7 @@ namespace simple.migrations
 {
     public interface CommandRegistry
     {
-        ParameterizedCommand<string[]> command_for(string[] arguments);
+        ParameterizedCommand<ConsoleArguments> command_for(string[] arguments);
         void register(ConsoleCommand command);
     }
 }
