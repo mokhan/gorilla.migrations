@@ -1,17 +1,14 @@
+using System;
+
 namespace simple.migrations
 {
     public class ConsoleArguments
     {
-        readonly string[] arguments;
-
-        ConsoleArguments(string[] arguments)
-        {
-            this.arguments = arguments;
-        }
+        string[] arguments;
 
         public static implicit operator ConsoleArguments(string[] arguments)
         {
-            return new ConsoleArguments(arguments);
+            return new ConsoleArguments {arguments = arguments};
         }
 
         public static implicit operator string[](ConsoleArguments arguments)
@@ -19,9 +16,14 @@ namespace simple.migrations
             return arguments.arguments;
         }
 
-        public bool contains(string key)
+        public virtual bool contains(string key)
         {
             return arguments[0].Contains(key);
+        }
+
+        public virtual string parse_for(string argument_name)
+        {
+            throw new NotImplementedException();
         }
     }
 }

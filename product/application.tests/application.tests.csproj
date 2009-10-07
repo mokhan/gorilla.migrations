@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandRegistrySpecs.cs" />
+    <Compile Include="ConsoleArgumentsSpecs.cs" />
     <Compile Include="ConsoleSpecs.cs" />
     <Compile Include="EmptyTestFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
