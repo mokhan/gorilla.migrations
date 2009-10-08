@@ -63,6 +63,14 @@ task :test, :category_to_exclude, :needs => [:compile] do |t,args|
   runner.execute_tests ["#{Project.tests_dir}"]
 end
 
+task :info do
+	puts "project name: " + Project.name
+	puts "project tests dir: " + Project.tests_dir
+	puts "project startup dir: " + Project.startup_dir
+	puts "project startup config: " + Project.startup_config
+	puts "project startup extension: " + Project.startup_extension
+end
+
 task :run_test_report => [:test] do
  runner = BDDDocRunner.new
  runner.run(File.join('product',"#{Project.tests_dir}",'bin','debug',"#{Project.tests_dir}.dll"))

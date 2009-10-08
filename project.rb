@@ -14,7 +14,8 @@ class Project
   end
 
   def self.tests_dir
-    @tests_dir = "test.#{self.name}"
+    #@tests_dir = "test.#{self.name}"
+    @tests_dir = "application.tests"
   end
 
   def self.startup_config
