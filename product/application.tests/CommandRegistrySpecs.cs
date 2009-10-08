@@ -13,12 +13,13 @@ namespace tests
             context c = () =>
                             {
                                 command = controller.an<ConsoleCommand>();
+                                correct_args = controller.an<ConsoleArguments>();
                                 command.Stub(x => x.can_handle(correct_args)).Return(true);
                             };
 
             after_the_sut_has_been_created a = () => { controller.sut.register(command); };
 
-            protected static readonly string[] correct_args = new[] {""};
+            protected static ConsoleArguments correct_args;
             protected static ConsoleCommand command;
         }
 
@@ -39,7 +40,7 @@ namespace tests
 
             because b = () => { result = controller.sut.command_for(unknown_args); };
 
-            static readonly ConsoleArguments unknown_args = new[] {""};
+            static readonly string[] unknown_args = new[] {""};
             static ParameterizedCommand<ConsoleArguments> result;
         }
     }
