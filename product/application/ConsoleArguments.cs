@@ -18,16 +18,26 @@ namespace simple.migrations
 
         public virtual bool contains(string key)
         {
-            return arguments[0].Contains(key);
+            return find_match_for(key).Success;
         }
 
         public virtual string parse_for(string argument_name)
         {
-            var pattern = @"-{0}:'.+?'".format_using(argument_name);
-            var argument = arguments[0];
-            var match = new Regex(pattern, RegexOptions.Singleline).Match(argument);
+            var match = find_match_for(argument_name);
+            return value_from(argument_name, match);
+        }
+
+        string value_from(string argument_name, Capture match)
+        {
             var replace = match.Value.Replace("-{0}:'".format_using(argument_name), "");
             return replace.Remove(replace.Length - 1, 1);
+        }
+
+        Match find_match_for(string argument_name)
+        {
+            var pattern = @"-{0}:'.+?'".format_using(argument_name);
+            var argument = arguments[0];
+            return new Regex(pattern, RegexOptions.Singleline).Match(argument);
         }
 
         public bool Equals(ConsoleArguments other)

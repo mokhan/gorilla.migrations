@@ -73,6 +73,7 @@
     <Compile Include="ConsoleArgumentsSpecs.cs" />
     <Compile Include="ConsoleSpecs.cs" />
     <Compile Include="EmptyTestFixture.cs" />
+    <Compile Include="helpers\RhinoStubbingExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RunMigrationsCommandSpecs.cs" />
   </ItemGroup>
