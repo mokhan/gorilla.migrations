@@ -17,9 +17,6 @@ namespace tests
 
         public class when_processing_a_new_request : concern
         {
-            it should_run_the_command_that_can_handle_the_request =
-                () => { correct_command.received(x => x.run_against(console_arguments)); };
-
             context c = () =>
                             {
                                 console_arguments = new[] {""};
@@ -28,6 +25,9 @@ namespace tests
                             };
 
             because b = () => { controller.sut.run_against(console_arguments); };
+
+            it should_run_the_command_that_can_handle_the_request =
+                () => { correct_command.received(x => x.run_against(console_arguments)); };
 
             static string[] console_arguments;
             static ParameterizedCommand<ConsoleArguments> correct_command;
