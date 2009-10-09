@@ -74,6 +74,7 @@
     <Compile Include="ConsoleSpecs.cs" />
     <Compile Include="EmptyTestFixture.cs" />
     <Compile Include="helpers\RhinoStubbingExtensions.cs" />
+    <Compile Include="io\WindowsFileSystemSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RunMigrationsCommandSpecs.cs" />
   </ItemGroup>
@@ -82,6 +83,20 @@
       <Project>{5106142C-D444-4D6A-A73F-CA823CE38101}</Project>
       <Name>application</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sample_files\0001_first_test_file.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample_files\0001_first_test_file.sql.template">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="sample_files\0002_second_sql_file.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
