@@ -10,7 +10,7 @@ namespace simple.migrations.io
         {
             foreach (var file in Directory.GetFiles(directory, "*.sql", SearchOption.AllDirectories))
             {
-                yield return file;
+                yield return Path.Combine(directory, file);
             }
         }
     }

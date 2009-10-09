@@ -19,7 +19,7 @@ namespace tests.io
         {
             context c = () =>
             {
-                var directory = Path.Combine(Environment.CurrentDirectory, "sample_files");
+                directory = Path.Combine(Environment.CurrentDirectory, "sample_files");
                 first_sql_file = Path.Combine(directory, "0001_first_test_file.sql");
                 second_sql_file = Path.Combine(directory, "0002_first_test_file.sql");
                 template_file = Path.Combine(directory, "0001_first_test_file.sql.template");
@@ -27,14 +27,14 @@ namespace tests.io
 
             because b = () =>
             {
-                results = sut.all_sql_files_from("sample_files");
+                results = sut.all_sql_files_from(directory);
             };
 
             it should_return_each_sql_file_found_in_the_directory = () =>
             {
                 results.Count().should_be_equal_to(2);
-                results.should_contain(second_sql_file);
                 results.should_contain(first_sql_file);
+                results.should_contain(second_sql_file);
             };
 
             it should_not_return_any_other_types_of_files = () =>
@@ -46,6 +46,7 @@ namespace tests.io
             static SqlFile first_sql_file;
             static SqlFile second_sql_file;
             static SqlFile template_file;
+            static string directory;
         }
     }
 }

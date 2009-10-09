@@ -6,7 +6,7 @@ namespace simple.migrations.Data
 
         static public implicit operator SqlFile(string file_path)
         {
-            return new SqlFile {path = file_path};
+            return new SqlFile {path = file_path.ToLower()};
         }
 
         public bool Equals(SqlFile other)
