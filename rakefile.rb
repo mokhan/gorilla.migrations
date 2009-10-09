@@ -58,8 +58,7 @@ end
 
 task :test, :category_to_exclude, :needs => [:compile] do |t,args|
   puts Project.startup_dir
-  args.with_defaults(:category_to_exclude => 'SLOW')
-  runner = MbUnitRunner.new :compile_target => COMPILE_TARGET, :category_to_exclude => args.category_to_exclude, :show_report => true, :report_type => "text"
+  runner = MbUnitRunner.new :compile_target => COMPILE_TARGET, :category_to_exclude => 'SLOW', :show_report => true, :report_type => "text"
   runner.execute_tests ["#{Project.tests_dir}"]
 end
 

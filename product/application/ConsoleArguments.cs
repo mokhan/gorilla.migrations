@@ -4,14 +4,14 @@ namespace simple.migrations
 {
     public class ConsoleArguments
     {
-        string[] arguments;
+        public string[] arguments { get; set; }
 
-        public static implicit operator ConsoleArguments(string[] arguments)
+        static public implicit operator ConsoleArguments(string[] arguments)
         {
             return new ConsoleArguments {arguments = arguments};
         }
 
-        public static implicit operator string[](ConsoleArguments arguments)
+        static public implicit operator string[](ConsoleArguments arguments)
         {
             return arguments.arguments;
         }
@@ -23,9 +23,11 @@ namespace simple.migrations
 
         public virtual string parse_for(string argument_name)
         {
-            return
-                new Regex(@"^-{0}:\'[A-Za-z0-9\]\'$".format_using(argument_name), RegexOptions.Singleline)
-                .Match( arguments[0]).Value;
+            var pattern = @"-{0}:'.+?'".format_using(argument_name);
+            var argument = arguments[0];
+            var match = new Regex(pattern, RegexOptions.Singleline).Match(argument);
+            var replace = match.Value.Replace("-{0}:'".format_using(argument_name), "");
+            return replace.Remove(replace.Length - 1, 1);
         }
 
         public bool Equals(ConsoleArguments other)
