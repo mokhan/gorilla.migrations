@@ -1,4 +1,6 @@
 using System;
+using System.Globalization;
+using System.IO;
 
 namespace simple.migrations.Data
 {
@@ -6,20 +8,17 @@ namespace simple.migrations.Data
     {
         public virtual string path { get; set; }
 
-        public virtual int version()
-        {
-            throw new NotImplementedException();
-        }
-
-        public virtual string name()
-        {
-            throw new NotImplementedException();
-        }
-
         public virtual bool is_greater_than(int version)
         {
-            throw new NotImplementedException();
+            return this.version() > version;
         }
+
+        int version()
+        {
+            var info = new FileInfo(path);
+            return (int) Convert.ChangeType(info.Name.Substring(0, info.Name.IndexOf("_")), typeof (int), CultureInfo.InvariantCulture);
+        }
+
 
         static public implicit operator SqlFile(string file_path)
         {
