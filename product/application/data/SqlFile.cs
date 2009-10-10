@@ -1,10 +1,10 @@
 using System;
-using System.Globalization;
 using System.IO;
+using simple.migrations.utility;
 
 namespace simple.migrations.Data
 {
-    public class SqlFile
+    public class SqlFile : IEquatable<SqlFile>
     {
         public virtual string path { get; set; }
 
@@ -15,10 +15,18 @@ namespace simple.migrations.Data
 
         int version()
         {
-            var info = new FileInfo(path);
-            return (int) Convert.ChangeType(info.Name.Substring(0, info.Name.IndexOf("_")), typeof (int), CultureInfo.InvariantCulture);
+            return version_number(file_name()).convert_to<int>();
         }
 
+        string version_number(string name)
+        {
+            return name.Substring(0, name.IndexOf("_"));
+        }
+
+        string file_name()
+        {
+            return new FileInfo(path).Name;
+        }
 
         static public implicit operator SqlFile(string file_path)
         {
