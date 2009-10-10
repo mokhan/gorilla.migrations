@@ -16,7 +16,7 @@ namespace tests
             context c = () =>
             {
                 file_system = the_dependency<FileSystem>();
-                database_gateway_factory=the_dependency<DatabaseGatewayFactory>();
+                database_gateway_factory = the_dependency<DatabaseGatewayFactory>();
             };
 
             static protected FileSystem file_system;
@@ -77,7 +77,7 @@ namespace tests
                 gateway = an<DatabaseGateway>();
 
                 database_gateway_factory
-                    .is_told_to(x => x.gateway_to("blah=blah;","System.Data.SqlClient"))
+                    .is_told_to(x => x.gateway_to("blah=blah;", "System.Data.SqlClient"))
                     .it_will_return(gateway);
                 file_system
                     .is_told_to(x => x.all_sql_files_from("c:\\tmp"))

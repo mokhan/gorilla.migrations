@@ -28,5 +28,33 @@ namespace tests.data
                 sut.is_greater_than(99).should_be_false();
             };
         }
+
+        [Concern(typeof (SqlFile))]
+        public class when_comparing_one_migration_file_to_another : concern
+        {
+            context c = () =>
+            {
+                first_script = "c:/tmp/0001_blah_blah.sql";
+                second_script = "c:/tmp/0002_another_one.sql";
+            };
+
+            it should_be_able_to_tell_when_one_file_is_greater_than_the_other = () =>
+            {
+                second_script.CompareTo(first_script).should_be_greater_than(0);
+            };
+
+            it should_be_able_to_tell_when_one_file_is_less_than_the_other = () =>
+            {
+                first_script.CompareTo(second_script).should_be_less_than(0);
+            };
+
+            it should_be_able_to_tell_when_two_files_are_the_same = () =>
+            {
+                first_script.CompareTo(first_script).should_be_equal_to(0);
+            };
+
+            static SqlFile first_script;
+            static SqlFile second_script;
+        }
     }
 }

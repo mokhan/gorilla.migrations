@@ -73,7 +73,7 @@
     <Compile Include="ConsoleArgumentsSpecs.cs" />
     <Compile Include="ConsoleSpecs.cs" />
     <Compile Include="data\SqlFileSpecs.cs" />
-    <Compile Include="data\SqlServerDatabaseGatewaySpecs.cs" />
+    <Compile Include="data\SqlDatabaseGatewaySpecs.cs" />
     <Compile Include="EmptyTestFixture.cs" />
     <Compile Include="helpers\RhinoStubbingExtensions.cs" />
     <Compile Include="io\WindowsFileSystemSpecs.cs" />

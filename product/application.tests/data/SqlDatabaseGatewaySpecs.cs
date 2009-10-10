@@ -8,9 +8,9 @@ using tests.helpers;
 
 namespace tests.data
 {
-    public class SqlServerDatabaseGatewaySpecs
+    public class SqlDatabaseGatewaySpecs
     {
-        public abstract class concern : observations_for_a_sut_with_a_contract<DatabaseGateway, SqlServerDatabaseGateway>
+        public abstract class concern : observations_for_a_sut_with_a_contract<DatabaseGateway, SqlDatabaseGateway>
         {
             context c = () =>
             {
@@ -37,7 +37,7 @@ namespace tests.data
             static protected DatabaseCommand command;
         }
 
-        [Concern(typeof (SqlServerDatabaseGateway))]
+        [Concern(typeof (SqlDatabaseGateway))]
         public class when_attempting_to_run_a_migration_script_that_has_already_been_run_against_the_database : concern
         {
             because b = () =>
@@ -51,7 +51,7 @@ namespace tests.data
             };
         }
 
-        [Concern(typeof (SqlServerDatabaseGateway))]
+        [Concern(typeof (SqlDatabaseGateway))]
         public class when_running_a_bunch_of_migrations_scripts_against_a_database : concern
         {
             because b = () =>

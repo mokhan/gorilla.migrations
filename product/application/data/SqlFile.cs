@@ -4,7 +4,7 @@ using simple.migrations.utility;
 
 namespace simple.migrations.Data
 {
-    public class SqlFile : IEquatable<SqlFile>
+    public class SqlFile : IEquatable<SqlFile>, IComparable<SqlFile>
     {
         public virtual string path { get; set; }
 
@@ -26,6 +26,11 @@ namespace simple.migrations.Data
         string file_name()
         {
             return new FileInfo(path).Name;
+        }
+
+        public virtual int CompareTo(SqlFile other)
+        {
+            return version().CompareTo(other.version());
         }
 
         static public implicit operator SqlFile(string file_path)
