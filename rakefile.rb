@@ -7,7 +7,11 @@ require 'fileutils'
 #load settings that differ by machine
 local_settings = LocalSettings.new
 
-COMPILE_TARGET = 'debug'
+if local_settings[:debug] == "TRUE"
+	COMPILE_TARGET = 'debug'
+else
+	COMPILE_TARGET = 'release'
+end
 
 CLEAN.include('artifacts','**/bin','**/obj','**/*.sql')
 
@@ -68,6 +72,7 @@ task :info do
 	puts "project startup dir: " + Project.startup_dir
 	puts "project startup config: " + Project.startup_config
 	puts "project startup extension: " + Project.startup_extension
+	puts COMPILE_TARGET
 end
 
 task :run_test_report => [:test] do
@@ -94,6 +99,7 @@ end
 
 def copy_project_outputs(folder,extensions)
   extensions.each do |extension|
+	puts "#{Project.name}#{extension}"
     Dir.glob(File.join('product','**',"#{Project.name}#{extension}")).each do |file|
       FileUtils.cp file,folder
     end
