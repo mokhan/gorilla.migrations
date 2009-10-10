@@ -5,9 +5,9 @@ using System.Linq;
 using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.harnesses.mbunit;
 using developwithpassion.bdddoc.core;
+using gorilla.migrations.data;
+using gorilla.migrations.io;
 using MbUnit.Framework;
-using simple.migrations.Data;
-using simple.migrations.io;
 
 namespace tests.io
 {

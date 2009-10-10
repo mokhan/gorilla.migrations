@@ -1,8 +1,8 @@
 using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.harnesses.mbunit;
 using developwithpassion.bdd.mocking.rhino;
+using gorilla.migrations;
 using Rhino.Mocks;
-using simple.migrations;
 
 namespace tests
 {

@@ -1,4 +1,4 @@
-namespace simple.migrations
+namespace gorilla.migrations
 {
     public class ConsoleApplication : Console
     {

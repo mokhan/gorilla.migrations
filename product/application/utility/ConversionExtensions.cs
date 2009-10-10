@@ -1,7 +1,7 @@
 using System;
 using System.Globalization;
 
-namespace simple.migrations.utility
+namespace gorilla.migrations.utility
 {
     static public class ConversionExtensions
     {

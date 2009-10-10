@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace simple.migrations.utility
+namespace gorilla.migrations.utility
 {
     static public class IterationExtensions
     {

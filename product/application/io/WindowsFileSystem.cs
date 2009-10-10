@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.IO;
-using simple.migrations.Data;
+using gorilla.migrations.data;
 
-namespace simple.migrations.io
+namespace gorilla.migrations.io
 {
     public class WindowsFileSystem : FileSystem
     {

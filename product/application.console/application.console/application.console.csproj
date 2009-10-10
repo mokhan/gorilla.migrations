@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5106142C-D444-4D6A-A73F-CA823CE38101}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{138AFA6A-D88C-4156-82EC-65AB62B19830}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>gorilla.migrations</RootNamespace>
-    <AssemblyName>gorilla.migrations</AssemblyName>
+    <RootNamespace>gorilla.migrations.console</RootNamespace>
+    <AssemblyName>gorilla.migrations.console</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\artifacts\</OutputPath>
+    <OutputPath>..\..\..\artifacts\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -45,31 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command.cs" />
-    <Compile Include="Console.cs" />
-    <Compile Include="ConsoleApplication.cs" />
-    <Compile Include="CommandRegistry.cs" />
-    <Compile Include="ConsoleArguments.cs" />
-    <Compile Include="ConsoleArgumentsCommandRegistry.cs" />
-    <Compile Include="ConsoleCommand.cs" />
-    <Compile Include="data\DatabaseCommand.cs" />
-    <Compile Include="data\DatabaseCommandFactory.cs" />
-    <Compile Include="data\DatabaseGateway.cs" />
-    <Compile Include="data\DatabaseGatewayFactory.cs" />
-    <Compile Include="data\SqlDatabaseCommand.cs" />
-    <Compile Include="data\SqlDatabaseCommandFactory.cs" />
-    <Compile Include="data\SqlDatabaseGatewayFactory.cs" />
-    <Compile Include="data\SqlFile.cs" />
-    <Compile Include="data\SqlDatabaseGateway.cs" />
-    <Compile Include="HelpCommand.cs" />
-    <Compile Include="io\FileSystem.cs" />
-    <Compile Include="io\WindowsFileSystem.cs" />
-    <Compile Include="ParameterizedCommand.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RunMigrationsCommand.cs" />
-    <Compile Include="StringExtensions.cs" />
-    <Compile Include="utility\ConversionExtensions.cs" />
-    <Compile Include="utility\IterationExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\application\application.csproj">
+      <Project>{5106142C-D444-4D6A-A73F-CA823CE38101}</Project>
+      <Name>application</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

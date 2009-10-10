@@ -1,6 +1,6 @@
 using System;
 
-namespace simple.migrations
+namespace gorilla.migrations
 {
     public class HelpCommand : ConsoleCommand
     {

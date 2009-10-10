@@ -1,6 +1,6 @@
 using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.harnesses.mbunit;
-using simple.migrations;
+using gorilla.migrations;
 
 namespace tests
 {

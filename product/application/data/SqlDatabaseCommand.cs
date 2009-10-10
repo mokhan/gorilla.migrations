@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace simple.migrations.Data
+namespace gorilla.migrations.data
 {
     public class SqlDatabaseCommand : DatabaseCommand
     {

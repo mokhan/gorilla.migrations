@@ -1,8 +1,8 @@
 using System;
 using System.IO;
-using simple.migrations.utility;
+using gorilla.migrations.utility;
 
-namespace simple.migrations.Data
+namespace gorilla.migrations.data
 {
     public class SqlFile : IEquatable<SqlFile>, IComparable<SqlFile>
     {
@@ -35,7 +35,7 @@ namespace simple.migrations.Data
 
         public virtual string raw_sql()
         {
-            throw new NotImplementedException();
+            return File.ReadAllText(path);
         }
 
         static public implicit operator SqlFile(string file_path)

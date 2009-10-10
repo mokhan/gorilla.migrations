@@ -3,7 +3,7 @@ using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.harnesses.mbunit;
 using developwithpassion.bdd.mocking.rhino;
 using developwithpassion.bdddoc.core;
-using simple.migrations.Data;
+using gorilla.migrations.data;
 using tests.helpers;
 
 namespace tests.data

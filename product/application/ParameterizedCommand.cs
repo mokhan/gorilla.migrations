@@ -1,4 +1,4 @@
-namespace simple.migrations
+namespace gorilla.migrations
 {
     public interface ParameterizedCommand<T>
     {

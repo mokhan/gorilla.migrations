@@ -1,8 +1,8 @@
-using simple.migrations.Data;
-using simple.migrations.io;
-using simple.migrations.utility;
+using gorilla.migrations.data;
+using gorilla.migrations.io;
+using gorilla.migrations.utility;
 
-namespace simple.migrations
+namespace gorilla.migrations
 {
     public class RunMigrationsCommand : ConsoleCommand
     {

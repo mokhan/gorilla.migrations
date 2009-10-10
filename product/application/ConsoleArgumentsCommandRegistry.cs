@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace simple.migrations
+namespace gorilla.migrations
 {
     public class ConsoleArgumentsCommandRegistry : CommandRegistry
     {

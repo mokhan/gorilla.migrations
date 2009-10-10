@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace simple.migrations
+namespace gorilla.migrations
 {
     public class ConsoleArguments
     {

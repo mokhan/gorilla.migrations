@@ -6,7 +6,7 @@ class Project
   attr_reader :startup_extension
 
   def self.name
-    @name = "simple.migrations"
+    @name = "gorilla.migrations"
   end
 
   def self.startup_dir

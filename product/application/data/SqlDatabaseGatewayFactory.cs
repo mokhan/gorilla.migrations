@@ -1,6 +1,6 @@
 using System.Data.Common;
 
-namespace simple.migrations.Data
+namespace gorilla.migrations.data
 {
     public class SqlDatabaseGatewayFactory : DatabaseGatewayFactory
     {

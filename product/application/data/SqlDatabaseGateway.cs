@@ -1,7 +1,7 @@
 using System.Linq;
-using simple.migrations.utility;
+using gorilla.migrations.utility;
 
-namespace simple.migrations.Data
+namespace gorilla.migrations.data
 {
     public class SqlDatabaseGateway : DatabaseGateway
     {

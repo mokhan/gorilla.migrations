@@ -31,7 +31,7 @@ project_test_dir  = File.join('product',"#{Project.tests_dir}",'bin','debug')
 
 output_folders = [project_startup_dir,project_test_dir]
 
-task :default => [:build_db,:full_test]
+task :default => [:build_db,:test]
 
 task :init  => :clean do
   mkdir 'artifacts'

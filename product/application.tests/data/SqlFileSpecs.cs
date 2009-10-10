@@ -1,7 +1,7 @@
 using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.harnesses.mbunit;
 using developwithpassion.bdddoc.core;
-using simple.migrations.Data;
+using gorilla.migrations.data;
 
 namespace tests.data
 {

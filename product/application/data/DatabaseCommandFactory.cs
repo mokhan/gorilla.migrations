@@ -1,4 +1,4 @@
-namespace simple.migrations.Data
+namespace gorilla.migrations.data
 {
     public interface DatabaseCommandFactory
     {

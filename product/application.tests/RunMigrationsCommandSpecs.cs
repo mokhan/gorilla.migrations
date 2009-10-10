@@ -2,9 +2,9 @@ using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.harnesses.mbunit;
 using developwithpassion.bdd.mocking.rhino;
 using developwithpassion.bdddoc.core;
-using simple.migrations;
-using simple.migrations.Data;
-using simple.migrations.io;
+using gorilla.migrations;
+using gorilla.migrations.data;
+using gorilla.migrations.io;
 using tests.helpers;
 
 namespace tests
