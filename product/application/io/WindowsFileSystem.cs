@@ -9,9 +9,7 @@ namespace simple.migrations.io
         public IEnumerable<SqlFile> all_sql_files_from(string directory)
         {
             foreach (var file in Directory.GetFiles(directory, "*.sql", SearchOption.AllDirectories))
-            {
                 yield return Path.Combine(directory, file);
-            }
         }
     }
 }

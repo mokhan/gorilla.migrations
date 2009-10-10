@@ -21,7 +21,7 @@ namespace tests.io
             {
                 directory = Path.Combine(Environment.CurrentDirectory, "sample_files");
                 first_sql_file = Path.Combine(directory, "0001_first_test_file.sql");
-                second_sql_file = Path.Combine(directory, "0002_first_test_file.sql");
+                second_sql_file = Path.Combine(directory, "0002_second_sql_file.sql");
                 template_file = Path.Combine(directory, "0001_first_test_file.sql.template");
             };
 
