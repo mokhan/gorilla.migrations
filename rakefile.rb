@@ -66,6 +66,12 @@ task :test, :category_to_exclude, :needs => [:compile] do |t,args|
   runner.execute_tests ["#{Project.tests_dir}"]
 end
 
+task :test_all, :category_to_exclude, :needs => [:compile] do |t,args|
+  puts Project.startup_dir
+  runner = MbUnitRunner.new :compile_target => COMPILE_TARGET, :category_to_exclude => 'none', :show_report => true, :report_type => "text"
+  runner.execute_tests ["#{Project.tests_dir}"]
+end
+
 task :info do
 	puts "project name: " + Project.name
 	puts "project tests dir: " + Project.tests_dir
