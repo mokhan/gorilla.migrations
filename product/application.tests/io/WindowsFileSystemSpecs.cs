@@ -15,8 +15,8 @@ namespace tests.io
     {
         public abstract class concern : observations_for_a_sut_with_a_contract<FileSystem, WindowsFileSystem> {}
 
+        [FixtureCategory("SLOW")]
         [Concern(typeof (WindowsFileSystem))]
-        //[FixtureCategory("SLOW")]
         public class when_retrieving_all_the_sql_migrations_scripts_from_a_directory : concern
         {
             context c = () =>
