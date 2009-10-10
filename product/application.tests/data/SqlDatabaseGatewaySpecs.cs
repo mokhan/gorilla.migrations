@@ -26,7 +26,7 @@ namespace tests.data
                 table.Rows.Add(row);
 
                 command_factory.is_told_to(x => x.create()).it_will_return(command);
-                command.is_told_to(x => x.run("select * from migration_scripts")).it_will_return(table);
+                command.is_told_to(x => x.run("select * from migration_scripts")).it_will_return(row);
                 first_script.is_told_to(x => x.is_greater_than(1)).it_will_return(false);
                 second_script.is_told_to(x => x.is_greater_than(1)).it_will_return(true);
             };

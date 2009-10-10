@@ -33,6 +33,11 @@ namespace simple.migrations.Data
             return version().CompareTo(other.version());
         }
 
+        public virtual string raw_sql()
+        {
+            throw new NotImplementedException();
+        }
+
         static public implicit operator SqlFile(string file_path)
         {
             return new SqlFile {path = file_path.ToLower()};

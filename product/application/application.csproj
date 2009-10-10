@@ -56,6 +56,9 @@
     <Compile Include="data\DatabaseCommandFactory.cs" />
     <Compile Include="data\DatabaseGateway.cs" />
     <Compile Include="data\DatabaseGatewayFactory.cs" />
+    <Compile Include="data\SqlDatabaseCommand.cs" />
+    <Compile Include="data\SqlDatabaseCommandFactory.cs" />
+    <Compile Include="data\SqlDatabaseGatewayFactory.cs" />
     <Compile Include="data\SqlFile.cs" />
     <Compile Include="data\SqlDatabaseGateway.cs" />
     <Compile Include="HelpCommand.cs" />
