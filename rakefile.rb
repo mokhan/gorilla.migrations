@@ -13,7 +13,7 @@ else
 	COMPILE_TARGET = 'release'
 end
 
-CLEAN.include('artifacts','**/bin','**/obj','**/*.sql')
+CLEAN.include('artifacts','**/bin','**/obj')
 
 def create_sql_fileset(folder)
   FileList.new(File.join('product','sql',folder,'**/*.sql'))
