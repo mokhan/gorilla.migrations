@@ -5,6 +5,7 @@ using System.Linq;
 using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.harnesses.mbunit;
 using developwithpassion.bdddoc.core;
+using MbUnit.Framework;
 using simple.migrations.Data;
 using simple.migrations.io;
 
@@ -15,6 +16,7 @@ namespace tests.io
         public abstract class concern : observations_for_a_sut_with_a_contract<FileSystem, WindowsFileSystem> {}
 
         [Concern(typeof (WindowsFileSystem))]
+        [FixtureCategory("SLOW")]
         public class when_retrieving_all_the_sql_migrations_scripts_from_a_directory : concern
         {
             context c = () =>

@@ -16,6 +16,11 @@ namespace simple.migrations.Data
             throw new NotImplementedException();
         }
 
+        public virtual bool is_greater_than(int version)
+        {
+            throw new NotImplementedException();
+        }
+
         static public implicit operator SqlFile(string file_path)
         {
             return new SqlFile {path = file_path.ToLower()};
@@ -44,11 +49,6 @@ namespace simple.migrations.Data
         public override string ToString()
         {
             return path;
-        }
-
-        public virtual bool is_greater_than(int version)
-        {
-            throw new NotImplementedException();
         }
     }
 }
