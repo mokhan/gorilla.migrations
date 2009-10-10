@@ -72,6 +72,7 @@
     <Compile Include="CommandRegistrySpecs.cs" />
     <Compile Include="ConsoleArgumentsSpecs.cs" />
     <Compile Include="ConsoleSpecs.cs" />
+    <Compile Include="data\SqlServerDatabaseGatewaySpecs.cs" />
     <Compile Include="EmptyTestFixture.cs" />
     <Compile Include="helpers\RhinoStubbingExtensions.cs" />
     <Compile Include="io\WindowsFileSystemSpecs.cs" />
@@ -94,9 +95,6 @@
     <None Include="sample_files\0002_second_sql_file.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

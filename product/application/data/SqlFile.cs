@@ -1,8 +1,16 @@
+using System;
+
 namespace simple.migrations.Data
 {
     public class SqlFile
     {
         public virtual string path { get; set; }
+
+        public virtual int version() { 
+            throw new NotImplementedException();}
+
+        public virtual string name() {
+            throw new NotImplementedException();}
 
         static public implicit operator SqlFile(string file_path)
         {

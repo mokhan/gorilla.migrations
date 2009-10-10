@@ -52,9 +52,12 @@
     <Compile Include="ConsoleArguments.cs" />
     <Compile Include="ConsoleArgumentsCommandRegistry.cs" />
     <Compile Include="ConsoleCommand.cs" />
+    <Compile Include="data\DatabaseCommand.cs" />
+    <Compile Include="data\DatabaseCommandFactory.cs" />
     <Compile Include="data\DatabaseGateway.cs" />
     <Compile Include="data\DatabaseGatewayFactory.cs" />
     <Compile Include="data\SqlFile.cs" />
+    <Compile Include="data\SqlServerDatabaseGateway.cs" />
     <Compile Include="HelpCommand.cs" />
     <Compile Include="io\FileSystem.cs" />
     <Compile Include="io\WindowsFileSystem.cs" />
