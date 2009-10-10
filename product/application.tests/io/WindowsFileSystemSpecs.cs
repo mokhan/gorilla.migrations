@@ -29,7 +29,7 @@ namespace tests.io
 
             because b = () =>
             {
-                results = sut.all_sql_files_from(directory);
+                results =controller. sut.all_sql_files_from(directory);
             };
 
             it should_return_each_sql_file_found_in_the_directory = () =>

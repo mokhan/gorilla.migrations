@@ -11,7 +11,7 @@ namespace tests.data
         {
             after_the_sut_has_been_created a = () =>
             {
-                sut.path = @"c:\\tmp\scripts\0099_the_gretzky_script.sql";
+                controller.sut.path = @"c:\\tmp\scripts\0099_the_gretzky_script.sql";
             };
         }
 
@@ -20,12 +20,12 @@ namespace tests.data
         {
             it should_return_true_when_it_is = () =>
             {
-                sut.is_greater_than(98).should_be_true();
+               controller. sut.is_greater_than(98).should_be_true();
             };
 
             it should_return_false_when_it_is_not = () =>
             {
-                sut.is_greater_than(99).should_be_false();
+                controller.sut.is_greater_than(99).should_be_false();
             };
         }
 

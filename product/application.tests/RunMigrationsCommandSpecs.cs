@@ -15,8 +15,8 @@ namespace tests
         {
             context c = () =>
             {
-                file_system = the_dependency<FileSystem>();
-                database_gateway_factory = the_dependency<DatabaseGatewayFactory>();
+                file_system = controller.the_dependency<FileSystem>();
+                database_gateway_factory = controller.the_dependency<DatabaseGatewayFactory>();
             };
 
             static protected FileSystem file_system;
@@ -37,7 +37,7 @@ namespace tests
 
             because b = () =>
             {
-                result = sut.can_handle(proper_arguments);
+                result = controller.sut.can_handle(proper_arguments);
             };
 
             it should_recognize_the_arguments = () => result.should_be_true();
@@ -56,7 +56,7 @@ namespace tests
 
             because b = () =>
             {
-                result = sut.can_handle(unknown_arguments);
+                result = controller.sut.can_handle(unknown_arguments);
             };
 
             it should_not_recognize_the_arguments_to_run_the_database_migrations = () => result.should_be_false();
@@ -71,10 +71,10 @@ namespace tests
         {
             context c = () =>
             {
-                old_migration = an<SqlFile>();
-                new_migration = an<SqlFile>();
-                arguments = an<ConsoleArguments>();
-                gateway = an<DatabaseGateway>();
+                old_migration = controller.an<SqlFile>();
+                new_migration = controller.an<SqlFile>();
+                arguments = controller.an<ConsoleArguments>();
+                gateway = controller.an<DatabaseGateway>();
 
                 database_gateway_factory
                     .is_told_to(x => x.gateway_to("blah=blah;", "System.Data.SqlClient"))
@@ -90,7 +90,7 @@ namespace tests
 
             because b = () =>
             {
-                sut.run_against(arguments);
+                controller.sut.run_against(arguments);
             };
 
             it should_run_each_migration_script = () =>

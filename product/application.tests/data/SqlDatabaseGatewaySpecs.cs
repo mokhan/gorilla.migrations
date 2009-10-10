@@ -14,10 +14,10 @@ namespace tests.data
         {
             context c = () =>
             {
-                command_factory = the_dependency<DatabaseCommandFactory>();
-                first_script = an<SqlFile>();
-                second_script = an<SqlFile>();
-                command = an<DatabaseCommand>();
+                command_factory = controller.the_dependency<DatabaseCommandFactory>();
+                first_script = controller.an<SqlFile>();
+                second_script = controller.an<SqlFile>();
+                command = controller.an<DatabaseCommand>();
 
                 var table = new DataTable();
                 var row = table.NewRow();
@@ -42,7 +42,7 @@ namespace tests.data
         {
             because b = () =>
             {
-                sut.run(first_script);
+                controller.sut.run(first_script);
             };
 
             it should_skip_that_script = () =>
@@ -56,7 +56,7 @@ namespace tests.data
         {
             because b = () =>
             {
-                sut.run(second_script);
+                controller.sut.run(second_script);
             };
 
             it should_execute_the_sql_from_each_script_against_the_database = () =>

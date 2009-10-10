@@ -16,7 +16,7 @@ namespace tests.data
 
             because b = () =>
             {
-                result = sut.gateway_to("data source=(local);Integrated Security=SSPI;initial catalog=blah;", "System.Data.SqlClient");
+                result = controller.sut.gateway_to("data source=(local);Integrated Security=SSPI;initial catalog=blah;", "System.Data.SqlClient");
             };
 
             it should_return_a_database_gateway = () =>
