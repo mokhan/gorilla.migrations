@@ -150,6 +150,7 @@ class File
   end
 
   def self.delete?(file)
+	  puts "deleting.." +file
     File.delete(file) if File.exists?(file)
   end
 
