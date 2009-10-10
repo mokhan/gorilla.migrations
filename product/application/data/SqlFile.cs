@@ -6,11 +6,15 @@ namespace simple.migrations.Data
     {
         public virtual string path { get; set; }
 
-        public virtual int version() { 
-            throw new NotImplementedException();}
+        public virtual int version()
+        {
+            throw new NotImplementedException();
+        }
 
-        public virtual string name() {
-            throw new NotImplementedException();}
+        public virtual string name()
+        {
+            throw new NotImplementedException();
+        }
 
         static public implicit operator SqlFile(string file_path)
         {
@@ -40,6 +44,11 @@ namespace simple.migrations.Data
         public override string ToString()
         {
             return path;
+        }
+
+        public virtual bool is_greater_than(int version)
+        {
+            throw new NotImplementedException();
         }
     }
 }

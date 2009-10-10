@@ -1,3 +1,7 @@
+using System;
+using System.Data;
+using System.Globalization;
+
 namespace simple.migrations.Data
 {
     public class SqlServerDatabaseGateway : DatabaseGateway
@@ -13,7 +17,13 @@ namespace simple.migrations.Data
         {
             using (var command = command_factory.create())
             {
-                command.run(file);
+                foreach (DataRow row in command.run("select * from migration_scripts").Rows)
+                {
+                    var version = (int) Convert.ChangeType(row["version"], typeof (int), CultureInfo.InvariantCulture);
+                    if (!file.is_greater_than(version)) return;
+
+                    command.run(file);
+                }
             }
         }
     }

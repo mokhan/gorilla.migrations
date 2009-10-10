@@ -1,4 +1,3 @@
-using System;
 using System.Data;
 using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.harnesses.mbunit;
@@ -16,60 +15,59 @@ namespace tests.data
             context c = () =>
             {
                 command_factory = the_dependency<DatabaseCommandFactory>();
-            };
-
-            static protected DatabaseCommandFactory command_factory;
-        }
-
-        [Concern(typeof (SqlServerDatabaseGateway))]
-        public class when_attempting_to_run_a_migration_script_that_has_already_been_run_against_the_database : concern
-        {
-            because b = () => {};
-
-            it should_skip_that_script = () => {};
-        }
-
-        [Concern(typeof (SqlServerDatabaseGateway))]
-        public class when_running_a_bunch_of_migrations_scripts_against_a_database : concern
-        {
-            context c = () =>
-            {
-                sql_file = an<SqlFile>();
+                first_script = an<SqlFile>();
+                second_script = an<SqlFile>();
                 command = an<DatabaseCommand>();
 
                 var table = new DataTable();
                 var row = table.NewRow();
                 table.Columns.Add("version");
-                table.Columns.Add("script_name");
-                table.Columns.Add("run_on");
                 row["version"] = "0001";
-                row["script_name"] = "0001_hello_world.sql";
-                row["run_on"] = DateTime.Now;
                 table.Rows.Add(row);
 
                 command_factory.is_told_to(x => x.create()).it_will_return(command);
                 command.is_told_to(x => x.run("select * from migration_scripts")).it_will_return(table);
-                sql_file.is_told_to(x => x.version()).it_will_return(2);
-                sql_file.is_told_to(x => x.name()).it_will_return("0002_another_script.sql");
+                first_script.is_told_to(x => x.is_greater_than(1)).it_will_return(false);
+                second_script.is_told_to(x => x.is_greater_than(1)).it_will_return(true);
             };
 
+            static protected DatabaseCommandFactory command_factory;
+            static protected SqlFile first_script;
+            static protected SqlFile second_script;
+            static protected DatabaseCommand command;
+        }
+
+        [Concern(typeof (SqlServerDatabaseGateway))]
+        public class when_attempting_to_run_a_migration_script_that_has_already_been_run_against_the_database : concern
+        {
             because b = () =>
             {
-                sut.run(sql_file);
+                sut.run(first_script);
+            };
+
+            it should_skip_that_script = () =>
+            {
+                command.never_received(x => x.run(first_script));
+            };
+        }
+
+        [Concern(typeof (SqlServerDatabaseGateway))]
+        public class when_running_a_bunch_of_migrations_scripts_against_a_database : concern
+        {
+            because b = () =>
+            {
+                sut.run(second_script);
             };
 
             it should_execute_the_sql_from_each_script_against_the_database = () =>
             {
-                command.received(x => x.run(sql_file));
+                command.received(x => x.run(second_script));
             };
 
             it should_close_the_connection_to_the_database_when_finished = () =>
             {
                 command.received(x => x.Dispose());
             };
-
-            static SqlFile sql_file;
-            static DatabaseCommand command;
         }
     }
 }
