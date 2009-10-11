@@ -3,6 +3,7 @@ using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.harnesses.mbunit;
 using developwithpassion.bdddoc.core;
 using gorilla.migrations.console.infrastructure;
+using MbUnit.Framework;
 
 namespace tests.console
 {
@@ -56,6 +57,44 @@ namespace tests.console
             because b = () =>
             {
                 results = controller.sut.get_all<IThingy>();
+            };
+
+            it should_return_each_registered_implementation = () =>
+            {
+                results.should_contain_item_matching(x => x is Thingy);
+                results.should_contain_item_matching(x => x is AnotherThingy);
+            };
+
+            static IEnumerable<IThingy> results;
+        }
+
+        [Concern(typeof (SimpleContainer))]
+        public class when_attempting_to_resolve_an_item_from_the_container_that_has_not_been_registered : concern
+        {
+            because b = () =>
+            {
+                controller.doing(() => controller.sut.get_a<string>());
+            };
+
+            it should_throw_a_meaningful_exception = () =>
+            {
+                controller.exception_thrown_by_the_sut.should_be_an_instance_of<ComponentResolutionException<string>>();
+            };
+        }
+
+        [Concern(typeof (SimpleContainer))]
+        [Ignore]
+        public class when_resolving_an_ienumerable_of_anything : concern
+        {
+            context c = () =>
+            {
+                builder.register(() => new Thingy()).as_an<IThingy>();
+                builder.register(() => new AnotherThingy()).as_an<IThingy>();
+            };
+
+            because b = () =>
+            {
+                results = controller.sut.get_a<IEnumerable<IThingy>>();
             };
 
             it should_return_each_registered_implementation = () =>

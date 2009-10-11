@@ -14,6 +14,7 @@ namespace gorilla.migrations.console.infrastructure
         public GenericRegistration(Expression<Func<Implementation>> factory)
         {
             this.factory = factory.Compile();
+            as_an<Implementation>();
         }
 
         public void scoped_as<Scope>() where Scope : infrastructure.Scope, new()
@@ -29,8 +30,12 @@ namespace gorilla.migrations.console.infrastructure
 
         public bool is_for<Contract>()
         {
-            var type = typeof (Contract);
-            return type.Equals(typeof (Implementation)) || contracts.Any(x => x.Equals(type));
+            return is_for(typeof (Contract));
+        }
+
+        public bool is_for(Type type)
+        {
+            return contracts.Any(x => x.Equals(type));
         }
 
         public object build()

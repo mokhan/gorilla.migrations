@@ -6,7 +6,7 @@ namespace gorilla.migrations.console
     {
         public void run()
         {
-            ComponentRegistry.get_a<CommandRegistry>().register(ComponentRegistry.get_a<RunMigrationsCommand>());
+            Ioc.get_a<CommandRegistry>().register(Ioc.get_a<RunMigrationsCommand>());
         }
     }
 }

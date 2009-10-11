@@ -50,7 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="infrastructure\ComponentFactory.cs" />
-    <Compile Include="infrastructure\ComponentRegistry.cs" />
+    <Compile Include="infrastructure\Ioc.cs" />
+    <Compile Include="infrastructure\ComponentResolutionException.cs" />
     <Compile Include="infrastructure\Container.cs" />
     <Compile Include="infrastructure\Factory.cs" />
     <Compile Include="infrastructure\GenericRegistration.cs" />

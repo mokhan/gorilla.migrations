@@ -1,6 +1,6 @@
 namespace gorilla.migrations.console.infrastructure
 {
-    static public class ComponentRegistry
+    static public class Ioc
     {
         static Container underlying_container;
 

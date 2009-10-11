@@ -11,7 +11,7 @@ namespace gorilla.migrations.console
                 .then(new RegisterConsoleCommands())
                 .run();
 
-            ComponentRegistry.get_a<Console>().run_against(args);
+            Ioc.get_a<Console>().run_against(args);
         }
     }
 }

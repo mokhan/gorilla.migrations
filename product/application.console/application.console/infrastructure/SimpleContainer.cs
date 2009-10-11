@@ -14,7 +14,10 @@ namespace gorilla.migrations.console.infrastructure
 
         public T get_a<T>()
         {
-            return (T) registrations.First(x => x.is_for<T>()).build();
+            var type = typeof (T);
+            if (!registrations.Any(x => x.is_for(type))) throw new ComponentResolutionException<T>();
+
+            return (T) registrations.First(x => x.is_for(type)).build();
         }
 
         public IEnumerable<T> get_all<T>()
