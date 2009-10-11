@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.harnesses.mbunit;
 using developwithpassion.bdddoc.core;
@@ -8,22 +8,28 @@ namespace tests.console
 {
     public class SimpleContainerSpecs
     {
-        public abstract class concern : observations_for_a_sut_with_a_contract<Container, SimpleContainer> {}
+        public abstract class concern : observations_for_a_sut_with_a_contract<Container, SimpleContainer>
+        {
+            context c = () =>
+            {
+                builder = new SimpleContainerBuilder();
+            };
+
+            public override Container create_sut()
+            {
+                return builder.build();
+            }
+
+            static protected SimpleContainerBuilder builder;
+        }
 
         [Concern(typeof (SimpleContainer))]
         public class when_registering_an_item_with_the_container : concern
         {
             context c = () =>
             {
-                builder = new SimpleContainerBuilder();
                 builder.register(() => new Thingy()).As<IThingy>().scope<FactoryScope>();
             };
-
-            [Obsolete("use context property to access testing controller")]
-            public override Container create_sut()
-            {
-                return builder.build();
-            }
 
             because b = () =>
             {
@@ -35,13 +41,37 @@ namespace tests.console
                 result.should_not_be_equal_to(controller.sut.get_a<IThingy>());
             };
 
-            static SimpleContainerBuilder builder;
             static IThingy result;
+        }
+
+        [Concern(typeof (SimpleContainer))]
+        public class when_resolving_multiple_implementations_for_a_component : concern
+        {
+            context c = () =>
+            {
+                builder.register(() => new Thingy()).As<IThingy>();
+                builder.register(() => new AnotherThingy()).As<IThingy>();
+            };
+
+            because b = () =>
+            {
+                results = controller.sut.get_all<IThingy>();
+            };
+
+            it should_return_each_registered_implementation = () =>
+            {
+                results.should_contain_item_matching(x => x is Thingy);
+                results.should_contain_item_matching(x => x is AnotherThingy);
+            };
+
+            static IEnumerable<IThingy> results;
         }
     }
 
 
+    interface IThingy {}
+
     class Thingy : IThingy {}
 
-    interface IThingy {}
+    class AnotherThingy : IThingy {}
 }

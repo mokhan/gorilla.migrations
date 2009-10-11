@@ -5,11 +5,11 @@ using System.Linq.Expressions;
 
 namespace gorilla.migrations.console.infrastructure
 {
-    public class GenericRegistration<Implementation> : Reg
+    public class GenericRegistration<Implementation> : ComponentFactory
     {
         Func<Implementation> factory;
         ICollection<Type> contracts = new HashSet<Type>();
-        Scope contract_scope;
+        Scope contract_scope = new FactoryScope();
 
         public GenericRegistration(Expression<Func<Implementation>> factory)
         {
@@ -26,7 +26,7 @@ namespace gorilla.migrations.console.infrastructure
             scope(new Scope());
         }
 
-        public Registration As<Contract>()
+        public ComponentRegistration As<Contract>()
         {
             contracts.Add(typeof (Contract));
             return this;

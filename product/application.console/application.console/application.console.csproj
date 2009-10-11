@@ -45,10 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="infrastructure\ComponentFactory.cs" />
     <Compile Include="infrastructure\Container.cs" />
     <Compile Include="infrastructure\FactoryScope.cs" />
     <Compile Include="infrastructure\GenericRegistration.cs" />
-    <Compile Include="infrastructure\Registration.cs" />
+    <Compile Include="infrastructure\ComponentRegistration.cs" />
     <Compile Include="infrastructure\Scope.cs" />
     <Compile Include="infrastructure\SimpleContainer.cs" />
     <Compile Include="infrastructure\SimpleContainerBuilder.cs" />

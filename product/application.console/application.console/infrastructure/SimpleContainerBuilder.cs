@@ -6,9 +6,9 @@ namespace gorilla.migrations.console.infrastructure
 {
     public class SimpleContainerBuilder
     {
-        IList<Reg> registered_items = new List<Reg>();
+        IList<ComponentFactory> registered_items = new List<ComponentFactory>();
 
-        public Registration register<T>(Expression<Func<T>> factory)
+        public ComponentRegistration register<T>(Expression<Func<T>> factory)
         {
             var registration = new GenericRegistration<T>(factory);
             registered_items.Add(registration);
