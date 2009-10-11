@@ -4,6 +4,6 @@ namespace gorilla.migrations.console.infrastructure
 {
     public interface Scope
     {
-        object apply_to(Func<object> factory);
+        T apply_to<T>(Func<T> factory);
     }
 }

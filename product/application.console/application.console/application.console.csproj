@@ -53,6 +53,7 @@
     <Compile Include="infrastructure\Scope.cs" />
     <Compile Include="infrastructure\SimpleContainer.cs" />
     <Compile Include="infrastructure\SimpleContainerBuilder.cs" />
+    <Compile Include="infrastructure\Singleton.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
