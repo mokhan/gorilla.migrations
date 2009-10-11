@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="developwithpassion.commons.core.infrastructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\thirdparty\developwithpassion.commons\developwithpassion.commons.core.infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -46,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="infrastructure\ComponentFactory.cs" />
+    <Compile Include="infrastructure\ComponentRegistry.cs" />
     <Compile Include="infrastructure\Container.cs" />
     <Compile Include="infrastructure\Factory.cs" />
     <Compile Include="infrastructure\GenericRegistration.cs" />
@@ -56,6 +61,8 @@
     <Compile Include="infrastructure\Singleton.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterConsoleCommands.cs" />
+    <Compile Include="WireUpContainer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\application\application.csproj">

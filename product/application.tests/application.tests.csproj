@@ -78,6 +78,7 @@
     <Compile Include="core\data\SqlDatabaseGatewayFactorySpecs.cs" />
     <Compile Include="core\data\SqlFileSpecs.cs" />
     <Compile Include="core\data\SqlDatabaseGatewaySpecs.cs" />
+    <Compile Include="core\utility\CommandExtensionsSpecs.cs" />
     <Compile Include="EmptyTestFixture.cs" />
     <Compile Include="helpers\RhinoStubbingExtensions.cs" />
     <Compile Include="core\io\WindowsFileSystemSpecs.cs" />
