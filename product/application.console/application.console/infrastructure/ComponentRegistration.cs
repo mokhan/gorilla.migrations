@@ -2,7 +2,7 @@ namespace gorilla.migrations.console.infrastructure
 {
     public interface ComponentRegistration
     {
-        void scope<T>() where T : Scope, new();
-        ComponentRegistration As<T>();
+        void scoped_as<T>() where T : Scope, new();
+        ComponentRegistration as_an<Contract>();
     }
 }

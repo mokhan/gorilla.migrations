@@ -47,7 +47,7 @@
   <ItemGroup>
     <Compile Include="infrastructure\ComponentFactory.cs" />
     <Compile Include="infrastructure\Container.cs" />
-    <Compile Include="infrastructure\FactoryScope.cs" />
+    <Compile Include="infrastructure\Factory.cs" />
     <Compile Include="infrastructure\GenericRegistration.cs" />
     <Compile Include="infrastructure\ComponentRegistration.cs" />
     <Compile Include="infrastructure\Scope.cs" />

@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="console\infrastructure\FactorySpecs.cs" />
     <Compile Include="console\SimpleContainerSpecs.cs" />
     <Compile Include="core\CommandRegistrySpecs.cs" />
     <Compile Include="core\ConsoleArgumentsSpecs.cs" />

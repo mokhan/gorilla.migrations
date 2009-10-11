@@ -9,24 +9,19 @@ namespace gorilla.migrations.console.infrastructure
     {
         Func<Implementation> factory;
         ICollection<Type> contracts = new HashSet<Type>();
-        Scope contract_scope = new FactoryScope();
+        Scope contract_scope = new Factory();
 
         public GenericRegistration(Expression<Func<Implementation>> factory)
         {
             this.factory = factory.Compile();
         }
 
-        void scope(Scope scope)
+        public void scoped_as<Scope>() where Scope : infrastructure.Scope, new()
         {
-            contract_scope = scope;
+            contract_scope = new Scope();
         }
 
-        public void scope<Scope>() where Scope : infrastructure.Scope, new()
-        {
-            scope(new Scope());
-        }
-
-        public ComponentRegistration As<Contract>()
+        public ComponentRegistration as_an<Contract>()
         {
             contracts.Add(typeof (Contract));
             return this;

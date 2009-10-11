@@ -28,7 +28,7 @@ namespace tests.console
         {
             context c = () =>
             {
-                builder.register(() => new Thingy()).As<IThingy>().scope<FactoryScope>();
+                builder.register(() => new Thingy()).as_an<IThingy>().scoped_as<Factory>();
             };
 
             because b = () =>
@@ -49,8 +49,8 @@ namespace tests.console
         {
             context c = () =>
             {
-                builder.register(() => new Thingy()).As<IThingy>();
-                builder.register(() => new AnotherThingy()).As<IThingy>();
+                builder.register(() => new Thingy()).as_an<IThingy>();
+                builder.register(() => new AnotherThingy()).as_an<IThingy>();
             };
 
             because b = () =>
