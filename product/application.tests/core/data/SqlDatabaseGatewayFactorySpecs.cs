@@ -3,7 +3,7 @@ using developwithpassion.bdd.harnesses.mbunit;
 using developwithpassion.bdddoc.core;
 using gorilla.migrations.data;
 
-namespace tests.data
+namespace tests.core.data
 {
     public class SqlDatabaseGatewayFactorySpecs
     {

@@ -7,7 +7,7 @@ using gorilla.migrations.data;
 using gorilla.migrations.io;
 using tests.helpers;
 
-namespace tests
+namespace tests.core
 {
     public class RunMigrationsCommandSpecs
     {

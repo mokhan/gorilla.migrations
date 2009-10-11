@@ -2,7 +2,7 @@ using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.harnesses.mbunit;
 using gorilla.migrations;
 
-namespace tests
+namespace tests.core
 {
     public class ConsoleArgumentsSpecs
     {

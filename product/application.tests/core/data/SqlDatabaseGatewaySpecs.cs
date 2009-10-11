@@ -6,7 +6,7 @@ using developwithpassion.bdddoc.core;
 using gorilla.migrations.data;
 using tests.helpers;
 
-namespace tests.data
+namespace tests.core.data
 {
     public class SqlDatabaseGatewaySpecs
     {

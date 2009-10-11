@@ -69,19 +69,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandRegistrySpecs.cs" />
-    <Compile Include="ConsoleArgumentsSpecs.cs" />
-    <Compile Include="ConsoleSpecs.cs" />
-    <Compile Include="data\SqlDatabaseGatewayFactorySpecs.cs" />
-    <Compile Include="data\SqlFileSpecs.cs" />
-    <Compile Include="data\SqlDatabaseGatewaySpecs.cs" />
+    <Compile Include="console\SimpleContainerSpecs.cs" />
+    <Compile Include="core\CommandRegistrySpecs.cs" />
+    <Compile Include="core\ConsoleArgumentsSpecs.cs" />
+    <Compile Include="core\ConsoleSpecs.cs" />
+    <Compile Include="core\data\SqlDatabaseGatewayFactorySpecs.cs" />
+    <Compile Include="core\data\SqlFileSpecs.cs" />
+    <Compile Include="core\data\SqlDatabaseGatewaySpecs.cs" />
     <Compile Include="EmptyTestFixture.cs" />
     <Compile Include="helpers\RhinoStubbingExtensions.cs" />
-    <Compile Include="io\WindowsFileSystemSpecs.cs" />
+    <Compile Include="core\io\WindowsFileSystemSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RunMigrationsCommandSpecs.cs" />
+    <Compile Include="core\RunMigrationsCommandSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\application.console\application.console\application.console.csproj">
+      <Project>{138AFA6A-D88C-4156-82EC-65AB62B19830}</Project>
+      <Name>application.console</Name>
+    </ProjectReference>
     <ProjectReference Include="..\application\application.csproj">
       <Project>{5106142C-D444-4D6A-A73F-CA823CE38101}</Project>
       <Name>application</Name>

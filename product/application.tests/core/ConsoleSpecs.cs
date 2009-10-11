@@ -4,7 +4,7 @@ using developwithpassion.bdd.mocking.rhino;
 using gorilla.migrations;
 using Rhino.Mocks;
 
-namespace tests
+namespace tests.core
 {
     public class ConsoleSpecs
     {

@@ -9,7 +9,7 @@ using gorilla.migrations.data;
 using gorilla.migrations.io;
 using MbUnit.Framework;
 
-namespace tests.io
+namespace tests.core.io
 {
     public class WindowsFileSystemSpecs
     {
@@ -21,7 +21,6 @@ namespace tests.io
         {
             context c = () =>
             {
-                //directory = Path.Combine(Environment.CurrentDirectory, "sample_files");
                 directory = AppDomain.CurrentDomain.BaseDirectory;
                 first_sql_file = Path.Combine(directory, "0001_first_test_file.sql");
                 second_sql_file = Path.Combine(directory, "0002_second_sql_file.sql");

@@ -3,7 +3,7 @@ using developwithpassion.bdd.harnesses.mbunit;
 using gorilla.migrations;
 using Rhino.Mocks;
 
-namespace tests
+namespace tests.core
 {
     public class CommandRegistrySpecs
     {
