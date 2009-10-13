@@ -37,7 +37,11 @@ output_folders = [project_startup_dir,project_test_dir]
 
 task :default => [:build_db,:test]
 
-task :init  => :clean do
+task :clean do
+	FileUtils.rm_rf('artifacts')
+end
+
+task :init => :clean do
   mkdir 'artifacts'
   mkdir 'artifacts/coverage'
   mkdir 'artifacts/deploy'
@@ -101,6 +105,11 @@ task :from_ide do
   config_files.each do |file|
     TemplateFile.new(file).generate_to_directories([project_startup_dir,project_test_dir],local_settings.settings)
   end
+end
+
+task :run do
+	deploy_folder = File.join('artifacts','deploy')
+	sh "#{deploy_folder}/#{Project.name}.console.exe -migrations_dir:'' -connection_string:'#{local_settings[:config_connectionstring]}' -data_provider:'System.Data.SqlClient'"
 end
 
 def copy_project_outputs(folder,extensions)

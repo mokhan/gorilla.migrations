@@ -6,7 +6,8 @@ namespace gorilla.migrations
     {
         public void run_against(ConsoleArguments item)
         {
-            throw new NotImplementedException();
+
+            System.Console.Out.WriteLine("Please provide the correct arguments");
         }
 
         public bool can_handle(ConsoleArguments arguments)

@@ -11,6 +11,7 @@ namespace gorilla.migrations
 
         public void run_against(string[] arguments)
         {
+            System.Console.Out.WriteLine("recieved {0}", arguments);
             registry.command_for(arguments).run_against(arguments);
         }
     }

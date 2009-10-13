@@ -17,6 +17,7 @@ namespace gorilla.migrations
 
         public void run_against(ConsoleArguments arguments)
         {
+            System.Console.Out.WriteLine("Running migrations...");
             var gateway = gateway_factory.gateway_to(arguments.parse_for("connection_string"), arguments.parse_for("data_provider"));
             file_system
                 .all_sql_files_from(arguments.parse_for("migrations_dir"))
