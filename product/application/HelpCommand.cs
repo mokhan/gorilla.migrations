@@ -6,7 +6,6 @@ namespace gorilla.migrations
     {
         public void run_against(ConsoleArguments item)
         {
-
             System.Console.Out.WriteLine("Please provide the correct arguments");
         }
 
