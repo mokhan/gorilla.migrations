@@ -109,7 +109,8 @@ end
 
 task :run do
 	deploy_folder = File.join('artifacts','deploy')
-	sh "#{deploy_folder}/#{Project.name}.console.exe -migrations_dir:'' -connection_string:'#{local_settings[:config_connectionstring]}' -data_provider:'System.Data.SqlClient'"
+	sql_folder = "d:/development/mokhan/gorilla.migrations/product/sql/"
+	sh "#{deploy_folder}/#{Project.name}/#{Project.name}.console.exe -migrations_dir:'#{sql_folder}' -connection_string:'#{local_settings[:config_connectionstring]}' -data_provider:'System.Data.SqlClient'"
 end
 
 def copy_project_outputs(folder,extensions)
