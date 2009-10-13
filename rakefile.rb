@@ -109,7 +109,7 @@ end
 
 task :run do
 	deploy_folder = File.join('artifacts','deploy')
-	sql_folder = "d:/development/mokhan/gorilla.migrations/product/sql/"
+	sql_folder = File.join(Dir.getwd,'product','sql')
 	command_line = "\"-migrations_dir:'#{sql_folder}' -connection_string:'#{local_settings[:config_connectionstring]}' -data_provider:'System.Data.SqlClient'\""
 	sh "#{deploy_folder}/#{Project.name}/#{Project.name}.console.exe '#{command_line}'"
 end
