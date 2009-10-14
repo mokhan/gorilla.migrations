@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Data;
 
@@ -11,11 +10,22 @@ namespace gorilla.migrations.data
         public SqlDatabaseCommand(IDbConnection connection)
         {
             this.connection = connection;
+			this.connection.Open();
         }
 
         public IEnumerable<DataRow> run(string sql)
         {
-            throw new NotImplementedException();
+            var table = new DataTable();
+            using (var command = connection.CreateCommand())
+            {
+                command.CommandText = sql;
+                command.CommandType = CommandType.Text;
+                table.Load( command.ExecuteReader());
+            }
+            foreach (DataRow row in table.Rows)
+            {
+                yield return row;
+            }
         }
 
         public void run(SqlFile sql)
